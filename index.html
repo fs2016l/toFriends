@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+<meta charset="UTF-8">
+<title>Floating heart</title>
+
+
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+<div style="position: fixed; float: right;z-index: 99;">
+  <audio   src="./js/music.mp3" autoplay="autoplay" controls>
+  </audio>
+</div>
+
+<div  style="text-align: center;">
+  <h1 class="cccc" style="color: #270F34">
+    <span>h</span>
+    <span>e</span>
+    <span>l</span>
+    <span>l</span>
+    <span>o</span>
+    <span>!</span>
+    <span>尚</span>
+    <span>紫</span>
+    <span>薇</span>
+  </h1>
+  <H1>
+
+    <span>要</span>
+    <span style="font-size: 150px">天天</span>
+    <span class="font1" style="font-size: 300px">开心</span>
+  </H1>
+</div>
+
+
+  <style>
+    .font1
+    {
+      animation:bian 0.1s infinite;
+      -webkit-animation:bian 1s infinite; /*Safari and Chrome*/
+      animation-direction:alternate;/* 反向执行动画 */
+      text-shadow: 0 1px 0  #CCC,
+      0 2px 0 #CCC,
+      0 3px 0 #CCC,
+      0 4px 0 #CCC,
+      0 5px 0 #CCC,
+      0 6px 0 #CCC,
+      0 7px 0 #CCC,
+      0 8px 0 #CCC,
+      0 9px 0 #CCC,
+      0 10px 10px rgba(0, 0, 0, 0.5);
+
+    }
+    @keyframes bian
+    {
+      from {font-size:56px;}
+      to {font-size:300px;}
+    }
+
+    /*@-webkit-keyframes bian !*Safari and Chrome*!*/
+    /*{*/
+    /*  from {font-size:56px;}*/
+    /*  to {font-size:100px;}*/
+    /*}*/
+
+
+    .cccc {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h1 span {
+      top: 20px; /*字符上下浮动*/
+      position: relative;
+      animation: loading 0.3s ease 0s infinite alternate; /*引用动画*/
+      /* animation: 动画名称 动画时间 动画曲线 何时开始 播放次数 是否反方向;
+      alternate:表示动画先正常运行再反方向运行，并持续交替
+      infinite:表示无限循环*/
+      font-size: 100px;
+      color: white;
+      text-shadow: 2 1px 0  #CCC,
+      0 2px 0 #CCC,
+      0 3px 0 #CCC,
+      0 4px 0 #CCC,
+      0 5px 0 #CCC,
+      0 6px 0 #CCC,
+      0 7px 0 #CCC,
+      0 8px 0 #CCC,
+      0 9px 0 #CCC,
+      0 10px 10px rgba(0, 0, 0, 0.5);
+      /*text-shadow: 水平阴影位置(必须) 垂直阴影位置(必须) 模糊距离(可选) 阴影颜色(可选);
+        text-shadow: h-shadow v-shadow blur color; */
+    }
+    h1 span:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    h1 span:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    h1 span:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    h1 span:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+    h1 span:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+    h1 span:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+    h1 span:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+    h1 span:nth-child(9) {
+      animation-delay: 0.8s;
+    }
+    @keyframes loading {  /* 定义动画*/
+      100% {
+        top: -20px;  /*字符上下浮动*/
+        text-shadow: 0 1px 0 #CCC,
+        0 2px 0 #CCC,
+        0 3px 0 #CCC,
+        0 4px 0 #CCC,
+        0 5px 0 #CCC,
+        0 6px 0 #CCC,
+        0 7px 0 #CCC,
+        0 8px 0 #CCC,
+        0 9px 0 #CCC,
+        0 50px 25px rgba(0, 0, 0, 0.3);
+        /*上升的时候阴影要在文字下面一些，所以垂直阴影的位置坐标和模糊距离要大一些*/
+      }
+    }
+  css-doodle {
+    --color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
+
+    --rule: (
+      :doodle {
+        @grid: 30x1 / 18vmin;
+        --deg: @p(-180deg, 180deg);
+      }
+      :container {
+        perspective: 30vmin;
+      }
+      :after, :before {
+        content: '';
+        background: var(--color);
+        @place-cell: @r(100%) @r(100%);
+        @size: @r(6px);
+        @shape: heart;
+      }
+
+      @place-cell: center;
+      @size: 100%;
+
+      box-shadow: @m(2, (0 0 50px var(--color)));
+      background: @m(100, (
+        radial-gradient(var(--color) 50%, transparent 0)
+        @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+        no-repeat
+      ));
+
+      will-change: transform, opacity;
+      animation: scale-up 12s linear infinite;
+      animation-delay: calc(-12s / @size() * @i());
+
+      @keyframes scale-up {
+        0%, 95.01%, 100% {
+          transform: translateZ(0) rotate(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        95% {
+          transform:
+            translateZ(35vmin) rotateZ(@var(--deg));
+        }
+      }
+    )
+  }
+</style>
+
+<css-doodle use="var(--rule)"></css-doodle>
+
+<script src='js/css-doodle.min.js'></script>
+
+
+
+</body>
+
+</html>
